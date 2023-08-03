@@ -4,7 +4,25 @@ import githubReducer from "./GithubReducer.js";
 const GithubContext = createContext([])
 
 function GithubContextProvider({ children }) {
-  const initialState = { users: [], isLoading: false }
+  const userModel = {
+    name: "",
+    type: "",
+    avatar_url: "",
+    location: "",
+    bio: "",
+    blog: "",
+    twitter_username: "",
+    login: "",
+    html_url: "",
+    followers: "",
+    following: "",
+    public_repos: "",
+    public_gists: "",
+    hireable: ""
+  } 
+
+  const initialState = { users: [], isLoading: false, user: userModel, repos: [] }
+
   const [state, dispatch] = useReducer(githubReducer, initialState)
 
   return (
